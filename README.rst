@@ -10,8 +10,8 @@ Checkout and Initialization
 .. code-block:: console
 
    $ cd ~                            # <--- or wherever you like
-   $ git clone https://github.com/jfasch/FH-ECE21.git
-   $ cd ~/FH-ECE21
+   $ git clone https://github.com/jfasch/FH-ECE21-LabExam-2023-06-12.git
+   $ cd ~/FH-ECE21-LabExam-2023-06-12
    $ git submodule init
    $ git submodule update
 
@@ -22,9 +22,9 @@ Create build directory for Intel architecture (``x86_64``)
 
 .. code-block:: console
 
-   $ mkdir ~/FH-ECE21-x86_64         # <--- or wherever you like
-   $ cd ~/FH-ECE21-x86_64
-   $ cmake ~/FH-ECE21
+   $ mkdir ~/FH-ECE21-LabExam-2023-06-12-x86_64         # <--- or wherever you like
+   $ cd ~/FH-ECE21-LabExam-2023-06-12-x86_64
+   $ cmake ~/FH-ECE21-LabExam-2023-06-12
    $ make
 
 Test
@@ -33,32 +33,26 @@ Test
 .. code-block:: console
 
    $ pwd
-   /home/jfasch/FH-ECE21-x86_64      # <--- or whatever you have chosen
-
-   $ ./students/firstname.lastname/bin/my-first-program-firstname.lastname 
-   The answer is: 666
+   /home/jfasch/FH-ECE21-LabExam-2023-06-12-x86_64      # <--- or whatever you have chosen
 
 .. code-block:: console
 
-   $ ./students/firstname.lastname/tests/test-suite-firstname.lastname 
-   Running main() from ~/FH-ECE21/googletest/googletest/src/gtest_main.cc
-   [==========] Running 1 test from 1 test suite.
+   $ ./tests/test-suite-fh-2023-06-12 
+   Running main() from /home/jfasch/tmp/FH-ECE21-LabExam-2023-06-12/googletest/googletest/src/gtest_main.cc
+   [==========] Running 3 tests from 2 test suites.
    [----------] Global test environment set-up.
-   [----------] 1 test from test_suite
-   [ RUN      ] test_suite.my_first_test
-   ~/FH-ECE21/students/firstname.lastname/tests/my-first-test.cpp:8: Failure
-   Expected equality of these values:
-     my_first_func()
-       Which is: 666
-     42
+   [----------] 1 test from sensor_mock_suite
+   [ RUN      ] sensor_mock_suite.basic
+   [       OK ] sensor_mock_suite.basic (0 ms)
+   [----------] 1 test from sensor_mock_suite (0 ms total)
    
-   [  FAILED  ] test_suite.my_first_test (0 ms)
-   [----------] 1 test from test_suite (0 ms total)
+   [----------] 2 tests from switch_mock_suite
+   [ RUN      ] switch_mock_suite.initial_state
+   [       OK ] switch_mock_suite.initial_state (0 ms)
+   [ RUN      ] switch_mock_suite.set_on_off
+   [       OK ] switch_mock_suite.set_on_off (0 ms)
+   [----------] 2 tests from switch_mock_suite (0 ms total)
    
    [----------] Global test environment tear-down
-   [==========] 1 test from 1 test suite ran. (0 ms total)
-   [  PASSED  ] 0 tests.
-   [  FAILED  ] 1 test, listed below:
-   [  FAILED  ] test_suite.my_first_test
-   
-    1 FAILED TEST
+   [==========] 3 tests from 2 test suites ran. (0 ms total)
+   [  PASSED  ] 3 tests.
